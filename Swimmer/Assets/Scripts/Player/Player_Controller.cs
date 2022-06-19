@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour
 {
     [SerializeField] float speed;
+    float move;
     Rigidbody2D rb2D;
 
     private void Awake()
@@ -19,6 +20,11 @@ public class Player_Controller : MonoBehaviour
 
     void Update()
     {
-        
+        move = Input.GetAxis("Horizontal");
+    }
+
+    void FixedUpdate()
+    {
+        rb2D.velocity = new Vector2(move * speed, 0);
     }
 }

@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 461958401}
   - component: {fileID: 461958403}
   - component: {fileID: 461958404}
+  - component: {fileID: 461958405}
   m_Layer: 0
   m_Name: Green_Bacteria
   m_TagString: Enemy
@@ -395,6 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+  speed: 1
 --- !u!58 &461958404
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -411,6 +413,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.0143689215}
   serializedVersion: 2
   m_Radius: 0.43987653
+--- !u!50 &461958405
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461958400}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +530,7 @@ GameObject:
   - component: {fileID: 958167476}
   - component: {fileID: 958167478}
   - component: {fileID: 958167479}
+  - component: {fileID: 958167480}
   m_Layer: 0
   m_Name: Yellow_Bacteria
   m_TagString: Enemy
@@ -594,6 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
+  speed: 1
 --- !u!70 &958167479
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -610,6 +635,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0045707235, y: 0.0030451266}
   m_Size: {x: 1.160077, y: 0.16367002}
   m_Direction: 1
+--- !u!50 &958167480
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958167475}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!1 &1208599440
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,6 +756,7 @@ GameObject:
   - component: {fileID: 1383013939}
   - component: {fileID: 1383013941}
   - component: {fileID: 1383013940}
+  - component: {fileID: 1383013942}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -854,6 +901,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 6
+--- !u!114 &1383013942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383013935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da0c3d685113504abd1012d4318bcf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1448717554
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,6 +982,7 @@ GameObject:
   - component: {fileID: 1656567696}
   - component: {fileID: 1656567695}
   - component: {fileID: 1656567697}
+  - component: {fileID: 1656567699}
   - component: {fileID: 1656567698}
   m_Layer: 0
   m_Name: Blue_Bacteria
@@ -1011,17 +1071,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
---- !u!136 &1656567698
-CapsuleCollider:
+  speed: 1
+--- !u!70 &1656567698
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656567694}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.125
-  m_Height: 1.015625
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.25, y: 1.015625}
+  m_Direction: 0
+--- !u!50 &1656567699
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656567694}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5

@@ -8,7 +8,7 @@ public class Bacteria : MonoBehaviour
     [SerializeField] float rotationSpeed;
 
     Rigidbody2D rb2d;
-    float speed;
+    [SerializeField] float speed;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class Bacteria : MonoBehaviour
 
     void Start()
     {
-        rb2d.velocity = new Vector2()
+        rb2d.velocity = new Vector2(0, -1 * speed);
     }
 
     // Update is called once per frame

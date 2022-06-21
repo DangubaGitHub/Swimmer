@@ -8,7 +8,7 @@ public class Bacteria : MonoBehaviour
     [SerializeField] float rotationSpeed;
 
     Rigidbody2D rb2d;
-    [SerializeField] float speed;
+    float speed = 2f;
 
     private void Awake()
     {
@@ -26,5 +26,13 @@ public class Bacteria : MonoBehaviour
         rotZ += Time.deltaTime * rotationSpeed;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Destroyer"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

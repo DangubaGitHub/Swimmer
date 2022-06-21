@@ -20,7 +20,6 @@ public class Bacteria : MonoBehaviour
         rb2d.velocity = new Vector2(0, -1 * speed);
     }
 
-    // Update is called once per frame
     void Update()
     {
         rotZ += Time.deltaTime * rotationSpeed;

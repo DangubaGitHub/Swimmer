@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform[] spawnPoints;
     [SerializeField] GameObject[] enemyPrefabs;
 
-    [SerializeField] float timeBetweenSpawns;
+    public float timeBetweenSpawns = 3f;
     float nextSpawnTime;
 
 

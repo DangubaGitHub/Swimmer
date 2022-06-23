@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParalaxFG : MonoBehaviour
+public class ParalaxBG : MonoBehaviour
 {
-    float scroleSpeed = -3f;
+    float scroleSpeed = -2f;
     Vector2 startPos;
 
     void Start()

@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 
     public bool scoreIsIncreasing;
 
+    EnemySpawner enemy_Spawner_Script;
+
+
     public static GameManager instance;
 
     private void Awake()
@@ -47,6 +50,24 @@ public class GameManager : MonoBehaviour
 
             PlayerPrefs.SetFloat("HighScore", highScoreCount);
             PlayerPrefs.Save();
+        }
+    }
+
+    public void Difficulty()
+    {
+        switch(scoreCount)
+        {
+            case 10:
+
+                break;
+
+            case 20:
+
+                break;
+
+            case 30:
+
+                break;
         }
     }
 }

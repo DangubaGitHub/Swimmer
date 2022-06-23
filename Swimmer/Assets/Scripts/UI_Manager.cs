@@ -27,6 +27,7 @@ public class UI_Manager : MonoBehaviour
 
     public void PlayGame()
     {
+        AudioManager.instance.PlaySFX(1);
         Menu.SetActive(false);
         Score.SetActive(true);
         Time.timeScale = 1;
@@ -57,6 +58,7 @@ public class UI_Manager : MonoBehaviour
     void UpdateScore()
     {
         scoreText.text = Mathf.Round(GameManager.instance.scoreCount).ToString();
+        
     }
 
     public void UpdateHighScore()

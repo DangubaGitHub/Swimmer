@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ParalaxBG : MonoBehaviour
 {
-    float scroleSpeed = -2f;
+    public float scroleSpeed = -1.5f;
     Vector2 startPos;
 
     void Start()

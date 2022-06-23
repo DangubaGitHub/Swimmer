@@ -8,16 +8,23 @@ public class Bacteria : MonoBehaviour
     [SerializeField] float rotationSpeed;
 
     Rigidbody2D rb2d;
-    float speed = 2f;
+    public float speed;
+
+    public static Bacteria instance;
 
     private void Awake()
     {
+        instance = this;
         rb2d = GetComponent<Rigidbody2D>();
+        speed = 2f;
+        
     }
 
     void Start()
     {
-        rb2d.velocity = new Vector2(0, -1 * speed);
+        transform.position = new Vector2(0, -1);
+        rb2d.AddForce(transform.up * speed);
+        //rb2d.velocity = new Vector2(0, -1) * speed;
     }
 
     void Update()
@@ -25,9 +32,44 @@ public class Bacteria : MonoBehaviour
         rotZ += Time.deltaTime * rotationSpeed;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
+
+        if (GameManager.instance.scoreCount > 10)
+        {
+            speed = 2000f;
+        }
+        if (GameManager.instance.scoreCount > 20)
+        {
+            speed = 50000f;
+        }
+
+        if (GameManager.instance.scoreCount > 30)
+        {
+            speed = 50f;
+        }
+
+        if (GameManager.instance.scoreCount > 40)
+        {
+            rb2d.gravityScale = 5;
+            //speed = 44f;
+        }
+
+        if (GameManager.instance.scoreCount > 50)
+        {
+            speed = 27f;
+        }
+
+        if (GameManager.instance.scoreCount > 60)
+        {
+            speed = 32f;
+        }
+
+        if (GameManager.instance.scoreCount > 70)
+        {
+            speed = 37f;
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Destroyer"))
         {

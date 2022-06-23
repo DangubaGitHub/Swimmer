@@ -13,6 +13,14 @@ public class GameManager : MonoBehaviour
     public bool scoreIsIncreasing;
 
     EnemySpawner enemy_Spawner_Script;
+    ParalaxBG paralaxBg_Script;
+    ParalaxFG paralaxFg_Script;
+
+    [Header("Scripts")]
+
+    [SerializeField] GameObject EnemySpawner;
+    [SerializeField] GameObject Background;
+    [SerializeField] GameObject Sides;
 
 
     public static GameManager instance;
@@ -20,6 +28,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        enemy_Spawner_Script = EnemySpawner.GetComponent<EnemySpawner>();
+        paralaxBg_Script = Background.GetComponent<ParalaxBG>();
+        paralaxFg_Script = Sides.GetComponent<ParalaxFG>();
     }
 
     void Start()
@@ -32,6 +43,63 @@ public class GameManager : MonoBehaviour
     {
         ScoreCounting();
         HighScoreCounting();
+        //Difficulty();
+
+        if (scoreCount > 10)
+        {
+            paralaxBg_Script.scroleSpeed = -2f;
+            paralaxFg_Script.scroleSpeed = -2.5f;
+            enemy_Spawner_Script.timeBetweenSpawns = 4.5f;
+            //Bacteria.instance.speed = 2.5f;
+        }
+
+        if (scoreCount > 20)
+        {
+            paralaxBg_Script.scroleSpeed = -2.5f;
+            paralaxFg_Script.scroleSpeed = -3f;
+            enemy_Spawner_Script.timeBetweenSpawns = 4f;
+            //Bacteria.instance.speed = 3f;
+        }
+
+        if (scoreCount > 30)
+        {
+            paralaxBg_Script.scroleSpeed = -3f;
+            paralaxFg_Script.scroleSpeed = -3.5f;
+            enemy_Spawner_Script.timeBetweenSpawns = 3.5f;
+            //Bacteria.instance.speed = 3.5f;
+        }
+
+        if (scoreCount > 40)
+        {
+            paralaxBg_Script.scroleSpeed = -3.5f;
+            paralaxFg_Script.scroleSpeed = -4f;
+            enemy_Spawner_Script.timeBetweenSpawns = 3f;
+            //Bacteria.instance.speed = 4f;
+        }
+
+        if (scoreCount > 50)
+        {
+            paralaxBg_Script.scroleSpeed = -4f;
+            paralaxFg_Script.scroleSpeed = -4.5f;
+            enemy_Spawner_Script.timeBetweenSpawns = 3.5f;
+            //Bacteria.instance.speed = 4.5f;
+        }
+
+        if (scoreCount > 60)
+        {
+            paralaxBg_Script.scroleSpeed = -4.5f;
+            paralaxFg_Script.scroleSpeed = -5f;
+            enemy_Spawner_Script.timeBetweenSpawns = 4f;
+            //Bacteria.instance.speed = 4.5f;
+        }
+
+        if (scoreCount > 70)
+        {
+            paralaxBg_Script.scroleSpeed = -5f;
+            paralaxFg_Script.scroleSpeed = -5.5f;
+            enemy_Spawner_Script.timeBetweenSpawns = 4.5f;
+            //Bacteria.instance.speed = 4.5f;
+        }
     }
 
     void ScoreCounting()
@@ -53,21 +121,44 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Difficulty()
+    /*public void Difficulty()
     {
         switch(scoreCount)
         {
             case 10:
-
+                paralaxBg_Script.scroleSpeed -= .5f;
+                paralaxFg_Script.scroleSpeed -= .5f;
+                enemy_Spawner_Script.timeBetweenSpawns -= .5f;
+                Bacteria.instance.speed += .5f;
                 break;
 
             case 20:
-
+                paralaxBg_Script.scroleSpeed -= .5f;
+                paralaxFg_Script.scroleSpeed -= .5f;
+                enemy_Spawner_Script.timeBetweenSpawns -= .5f;
+                Bacteria.instance.speed += .5f;
                 break;
 
             case 30:
+                paralaxBg_Script.scroleSpeed -= .5f;
+                paralaxFg_Script.scroleSpeed -= .5f;
+                enemy_Spawner_Script.timeBetweenSpawns -= .5f;
+                Bacteria.instance.speed += .5f;
+                break;
 
+            case 40:
+                paralaxBg_Script.scroleSpeed -= .5f;
+                paralaxFg_Script.scroleSpeed -= .5f;
+                enemy_Spawner_Script.timeBetweenSpawns -= .5f;
+                Bacteria.instance.speed += .5f;
+                break;
+
+            case 50:
+                paralaxBg_Script.scroleSpeed -= .5f;
+                paralaxFg_Script.scroleSpeed -= .5f;
+                enemy_Spawner_Script.timeBetweenSpawns -= .5f;
+                Bacteria.instance.speed += .5f;
                 break;
         }
-    }
+    }*/
 }

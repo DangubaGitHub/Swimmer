@@ -24,14 +24,18 @@ public class Player_Controller : MonoBehaviour
 
     void Update()
     {
-        move = Input.GetAxis("Horizontal");
+        move = Input.GetAxis("Horizontal");        
     }
 
     void FixedUpdate()
     {
         if (!ui_Manager_Script.menuIsOn)
         {
-            rb2D.velocity = new Vector2(move * speed, 0);
+            if (move != 0)
+            {
+                System.Diagnostics.Debug.Print(move.ToString());
+                rb2D.velocity = new Vector2(move * speed, 0);
+            }            
         }
     }
 }

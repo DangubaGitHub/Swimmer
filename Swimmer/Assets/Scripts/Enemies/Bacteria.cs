@@ -14,16 +14,16 @@ public class Bacteria : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-        rb2d = GetComponent<Rigidbody2D>();
-        speed = 2f;
+        //instance = this;
+        //rb2d = GetComponent<Rigidbody2D>();
+        //speed = 2f;
         
     }
 
     void Start()
     {
-        transform.position = new Vector2(0, -1);
-        rb2d.AddForce(transform.up * speed);
+        //transform.position = new Vector2(0, -1);
+        //rb2d.AddForce(transform.up * speed);
         //rb2d.velocity = new Vector2(0, -1) * speed;
     }
 
@@ -33,7 +33,7 @@ public class Bacteria : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
 
-        if (GameManager.instance.scoreCount > 10)
+        /*if (GameManager.instance.scoreCount > 10)
         {
             speed = 2000f;
         }
@@ -66,7 +66,7 @@ public class Bacteria : MonoBehaviour
         if (GameManager.instance.scoreCount > 70)
         {
             speed = 37f;
-        }
+        }*/
     }
 
     void OnCollisionEnter2D(Collision2D other)

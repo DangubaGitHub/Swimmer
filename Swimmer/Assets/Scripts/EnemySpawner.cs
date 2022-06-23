@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] Transform[] spawnPoints;
     [SerializeField] GameObject[] enemyPrefabs;
 
+    public float speed;
+
     public float timeBetweenSpawns;
     float nextSpawnTime;
 
@@ -14,6 +16,8 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         timeBetweenSpawns = 5f;
+        speed = 2f;
+        
     }
 
     void Update()
@@ -33,6 +37,8 @@ public class EnemySpawner : MonoBehaviour
         int randEnemy = Random.Range(0, enemyPrefabs.Length);
         int randSpawnPoint = Random.Range(0, spawnPoints.Length);
 
-        Instantiate(enemyPrefabs[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
+        GameObject bacteria = Instantiate(enemyPrefabs[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
+        Rigidbody2D bacteriaRb2d = bacteria.GetComponent<Rigidbody2D>();
+        bacteriaRb2d.AddForce(Vector2.down * speed, ForceMode2D.Impulse);
     }
 }

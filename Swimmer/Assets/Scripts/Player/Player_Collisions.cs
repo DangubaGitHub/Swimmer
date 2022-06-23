@@ -20,6 +20,7 @@ public class Player_Collisions : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Enemy"))
         {
+            GameManager.instance.scoreIsIncreasing = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

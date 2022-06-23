@@ -21,8 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject EnemySpawner;
     [SerializeField] GameObject Background;
     [SerializeField] GameObject Sides;
-
-
+            
     public static GameManager instance;
 
     private void Awake()
@@ -43,9 +42,8 @@ public class GameManager : MonoBehaviour
     {
         ScoreCounting();
         HighScoreCounting();
-        //Difficulty();
 
-        if (scoreCount > 10)
+        if (scoreCount >= 10)
         {
             paralaxBg_Script.scroleSpeed = -2f;
             paralaxFg_Script.scroleSpeed = -2.5f;
@@ -113,7 +111,7 @@ public class GameManager : MonoBehaviour
         {
             paralaxBg_Script.scroleSpeed = -6f;
             paralaxFg_Script.scroleSpeed = -6.5f;
-            enemy_Spawner_Script.timeBetweenSpawns = 1f;
+            enemy_Spawner_Script.timeBetweenSpawns = .75f;
             enemy_Spawner_Script.speed = 6.5f;
         }
 
@@ -121,15 +119,15 @@ public class GameManager : MonoBehaviour
         {
             paralaxBg_Script.scroleSpeed = -6.5f;
             paralaxFg_Script.scroleSpeed = -7f;
-            enemy_Spawner_Script.timeBetweenSpawns = .75f;
+            enemy_Spawner_Script.timeBetweenSpawns = .5f;
             enemy_Spawner_Script.speed = 7f;
         }
 
-        if (scoreCount > 400)
+        if (scoreCount > 300)
         {
             paralaxBg_Script.scroleSpeed = -7f;
             paralaxFg_Script.scroleSpeed = -7.5f;
-            enemy_Spawner_Script.timeBetweenSpawns = .5f;
+            enemy_Spawner_Script.timeBetweenSpawns = .25f;
             enemy_Spawner_Script.speed = 7.5f;
         }
     }
@@ -152,45 +150,4 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
-
-    /*public void Difficulty()
-    {
-        switch(scoreCount)
-        {
-            case 10:
-                paralaxBg_Script.scroleSpeed -= .5f;
-                paralaxFg_Script.scroleSpeed -= .5f;
-                enemy_Spawner_Script.timeBetweenSpawns -= .5f;
-                Bacteria.instance.speed += .5f;
-                break;
-
-            case 20:
-                paralaxBg_Script.scroleSpeed -= .5f;
-                paralaxFg_Script.scroleSpeed -= .5f;
-                enemy_Spawner_Script.timeBetweenSpawns -= .5f;
-                Bacteria.instance.speed += .5f;
-                break;
-
-            case 30:
-                paralaxBg_Script.scroleSpeed -= .5f;
-                paralaxFg_Script.scroleSpeed -= .5f;
-                enemy_Spawner_Script.timeBetweenSpawns -= .5f;
-                Bacteria.instance.speed += .5f;
-                break;
-
-            case 40:
-                paralaxBg_Script.scroleSpeed -= .5f;
-                paralaxFg_Script.scroleSpeed -= .5f;
-                enemy_Spawner_Script.timeBetweenSpawns -= .5f;
-                Bacteria.instance.speed += .5f;
-                break;
-
-            case 50:
-                paralaxBg_Script.scroleSpeed -= .5f;
-                paralaxFg_Script.scroleSpeed -= .5f;
-                enemy_Spawner_Script.timeBetweenSpawns -= .5f;
-                Bacteria.instance.speed += .5f;
-                break;
-        }
-    }*/
 }

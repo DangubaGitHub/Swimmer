@@ -31,11 +31,7 @@ public class Player_Controller : MonoBehaviour
     {
         if (!ui_Manager_Script.menuIsOn)
         {
-            if (move != 0)
-            {
-                System.Diagnostics.Debug.Print(move.ToString());
-                rb2D.velocity = new Vector2(move * speed, 0);
-            }            
+             rb2D.velocity = new Vector2(move * speed, 0);        
         }
     }
 }

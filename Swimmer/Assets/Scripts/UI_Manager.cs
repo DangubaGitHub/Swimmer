@@ -7,6 +7,7 @@ public class UI_Manager : MonoBehaviour
 {
     [SerializeField] GameObject Menu;
     [SerializeField] GameObject Score;
+    [SerializeField] GameObject Player;
 
     [SerializeField] Text scoreText;
     [SerializeField] Text highScoreText;
@@ -32,6 +33,8 @@ public class UI_Manager : MonoBehaviour
         Time.timeScale = 1;
         menuIsOn = false;
         GameManager.instance.scoreIsIncreasing = true;
+        AudioManager.instance.PlaySFX(1);
+        Player.SetActive(true);
     }
 
     public void QuitGame()
@@ -52,6 +55,7 @@ public class UI_Manager : MonoBehaviour
         Menu.SetActive(true);
         Score.SetActive(false);
         menuIsOn = true;
+        Player.SetActive(false);
     }
 
     void UpdateScore()

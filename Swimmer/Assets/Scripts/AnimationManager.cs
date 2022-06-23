@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimationManager : MonoBehaviour
 {
 
-
+    public const string IDLE = "Player_Idle";
     public const string EMERGE = "Player_Emerge";
 
     string currentState;
@@ -21,6 +21,7 @@ public class AnimationManager : MonoBehaviour
     {
         instance = this;
         anim = GetComponent<Animator>();
+        //ui_Manager_Script = UICanvas.GetComponent<UI_Manager>();
     }
 
     void Start()
@@ -30,7 +31,7 @@ public class AnimationManager : MonoBehaviour
 
     void Update()
     {
-        
+        //ChangeAnimationState(IDLE);
     }
 
     public void ChangeAnimationState(string newState)
